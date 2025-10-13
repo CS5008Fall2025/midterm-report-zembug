@@ -10,7 +10,9 @@
 ## Overview
 
 This report explores the Fibonacci sequence, a foundational concept in mathematics and computer science known for its recursive structure and widespread applications. The sequence begins with 0 and 1, and each subsequent number is the sum of the two preceding ones. Mathematically, it is defined as:
+
 $$F(n) = F(n - 1) + F(n - 2)$$
+
 with base cases:
 ```latex
 F(0) = 0
