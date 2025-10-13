@@ -14,10 +14,8 @@ This report explores the Fibonacci sequence, a foundational concept in mathemati
 $$F(n) = F(n - 1) + F(n - 2)$$
 
 with base cases:
-```latex
-F(0) = 0
-F(1) = 1
-```
+
+$$F(0) = 0 \quad \text{and} \quad F(1) = 1$$
 
 The sequence progresses as 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, and so on. [1] First introduced to Western mathematics by Leonardo of Pisa (Fibonacci) in his 1202 book Liber Abaci, the sequence was originally used to model rabbit population growth under ideal conditions. [2]
 
