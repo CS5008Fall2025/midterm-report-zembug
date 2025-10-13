@@ -40,7 +40,7 @@ The sequence’s relevance extends into algorithm design, dynamic programming, a
 
 
 
-### Language 2: UPDATE
+### Language 2: Python
 
 
 
