@@ -9,13 +9,18 @@
 
 ## Overview
 
-This report explores the Fibonacci sequence, a foundational concept in mathematics and computer science known for its recursive structure and widespread applications. The sequence begins with 0 and 1, and each subsequent number is the sum of the two preceding ones. Mathematically, it is defined as ```F(n) = F(n−1) + F(n−2)```, with base cases ```F(0) = 0 and F(1) = 1.``` The sequence progresses as 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, and so on. [1] First introduced to Western mathematics by Leonardo of Pisa (Fibonacci) in his 1202 book Liber Abaci, the sequence was originally used to model rabbit population growth under ideal conditions. [2]
-
+This report explores the Fibonacci sequence, a foundational concept in mathematics and computer science known for its recursive structure and widespread applications. The sequence begins with 0 and 1, and each subsequent number is the sum of the two preceding ones. Mathematically, it is defined as:
 ```latex
 F(n) = F(n - 1) + F(n - 2)
+``` 
+with base cases 
+```latex
 F(0) = 0
 F(1) = 1
 ```
+
+The sequence progresses as 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, and so on. [1] First introduced to Western mathematics by Leonardo of Pisa (Fibonacci) in his 1202 book Liber Abaci, the sequence was originally used to model rabbit population growth under ideal conditions. [2]
+
 
 Many patterns in nature reflect the Fibonacci sequence not just in appearance, but in function. For example, the number of petals on certain flowers often corresponds to Fibonacci numbers. Lilies typically have 3 petals, buttercups have 5, and some varieties of daisies can have 34. [1] These numbers are not arbitrary. They result from a process called phyllotaxis, which governs how plants grow and arrange their leaves, petals, or seeds. Fibonacci based arrangements ensure that each leaf or petal receives maximum sunlight and minimizes overlap with others. [3] Similarly, the spiral patterns found in sunflowers, pinecones, and pineapples often match consecutive Fibonacci numbers, helping distribute seeds evenly and efficiently [4].
 
