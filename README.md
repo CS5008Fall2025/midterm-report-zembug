@@ -28,13 +28,18 @@ Many patterns in nature reflect the Fibonacci sequence not just in appearance, b
 
 The sequence’s relevance extends into algorithm design, dynamic programming, and number theory. It serves as a benchmark for evaluating recursive depth, computational efficiency, and memory usage across different programming paradigms. In this report, I analyze and compare three common approaches to computing Fibonacci numbers: recursive, iterative, and dynamic programming, using both C and Python. Each method offers different strengths and challenges in terms of time complexity, space usage, and implementation style. The goal is to understand how algorithmic design and language features influence performance and developer experience.
 
-To begin my analysis of the three approaches, I first examine their Big O notation to understand the time and space complexity involved in executing each algorithm
+To begin my analysis of the three approaches, I first examine their Big O notation to understand the time and space complexity involved in executing each algorithm.
 
 | Version |  Big O | Space Used | 
 | :-- | :-- |  :-- |
-| Iterative | $O(n)$ | $O(1)$ |
 | Recursive | $O(2^n)$  | $O(n)$ |
+| Iterative | $O(n)$ | $O(1)$ |
 | Dynamic Programming | $O(n)$ | $O(n)$ |
+
+With the recursive approach, the Big O notation is $O(2^n)$,  representing exponential time. This is because each call to $F(n)$ (the nth Fibonacci number) creates two more calls: $F(n-1)$ and $F(n-2)$. This branching continues until reaching the base cases, forming a binary tree of calls. As a result, the number of operations grows exponentially with $n$, and many values are recomputed multiple times.
+
+With the iterative approach, the Big O notation is $O(n)$, representing linear time. This is because the loop runs once for each value from 2 up to $n$, performing a constant-time operation at each step. The algorithm starts with the base cases and computes each Fibonacci number in sequence, avoiding any redundant calculations. For space, it uses a constant $O(1)$, since it only requires a fixed number of variables to track the current and previous values. As a result, memory usage remains constant regardless of the input size. [5]
+
 
 ## Empirical Data & Discussion 
 
@@ -65,6 +70,8 @@ To begin my analysis of the three approaches, I first examine their Big O notati
 3. Biolecta. 2025. The Fibonacci Sequence: Its Importance in Math and Nature. Retrieved October 12, 2025 from
 https://biolecta.com/articles/fibonacci-sequence-importance-mathematics-nature/
 
-4. Insteading. The Fibonacci Sequence in Nature. Retrieved October 12, 2025 from
+4. Insteading. 2025. The Fibonacci Sequence in Nature. Retrieved October 12, 2025 from
 https://insteading.com/blog/fibonacci-sequence-in-nature/
+
+5. matrixRead. 2025. Fibonacci Series - Iterative vs Recursive. (October 16, 2020). Retrieved October 14, 2025 from https://matrixread.com/fibonacci-series-iterative-vs-recursive/
 
