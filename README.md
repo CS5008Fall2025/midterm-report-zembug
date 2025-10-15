@@ -26,7 +26,7 @@ First introduced to Western mathematics by Leonardo of Pisa (Fibonacci) in his 1
 
 Many patterns in nature reflect the Fibonacci sequence not just in appearance, but in function. For example, the number of petals on certain flowers often corresponds to Fibonacci numbers. Lilies typically have 3 petals, buttercups have 5, and some varieties of daisies can have 34. [1] These numbers are not arbitrary. They result from a process called phyllotaxis, which governs how plants grow and arrange their leaves, petals, or seeds. Fibonacci based arrangements ensure that each leaf or petal receives maximum sunlight and minimizes overlap with others. [3] Similarly, the spiral patterns found in sunflowers, pinecones, and pineapples often match consecutive Fibonacci numbers, helping distribute seeds evenly and efficiently [4].
 
-The sequence’s relevance extends into algorithm design, dynamic programming, and number theory. It serves as a benchmark for evaluating recursive depth, computational efficiency, and memory usage across different programming paradigms. In this report, I analyze and compare three common approaches to computing Fibonacci numbers: recursive, iterative, and dynamic programming, using both C and Python. Each method offers different strengths and challenges in terms of time complexity, space usage, and implementation style. The goal is to understand how algorithmic design and language features influence performance and developer experience.
+The sequence’s relevance extends into algorithm design, dynamic programming, and number theory. It serves as a benchmark for evaluating recursive depth, computational efficiency, and memory usage across different programming paradigms. In this report, I analyze and compare three common approaches to computing Fibonacci numbers: recursive, iterative, and dynamic programming, using both C and Python. Each method offers different strengths and challenges in terms of time complexity, space usage, and implementation style. The goal is to understand how algorithmic design and language features influence performance.
 
 To begin my analysis of the three approaches, I first examine their Big O notation to understand the time and space complexity involved in executing each algorithm.
 
@@ -53,9 +53,27 @@ With the iterative approach, the Big O notation is $O(n)$, representing linear t
 Iterative pseudocode:
 ```text
 function Fibonacci(n)
-    if n is 0
-        return 0
+    if n is 0 or 1
+        return n
 
+    set prev = 0
+    set curr = 1
+
+    for i from 2 to n
+        set next = prev + curr
+        set prev = curr
+        set curr = prev
+    return curr
+```
+
+With the dynamic programming approach, the Big O notation is $O(n)$, representing linear time. This is because each Fibonacci number from $F(2)$ up to $F(n)$ is computed exactly once, using previously stored values to perform constant-time additions at each step. The algorithm begins with the base cases and builds the sequence incrementally, storing each result in a data structure for reuse. For space, it uses $O(n)$, since it maintains an array or list of size $(n+1)$ to hold all computed values from $F(0)$ through $F(n)$. As a result, both time and memory usage grow linearly with the input size. [7]
+
+Dynamic programming pseudocode:
+```text
+function Fibonacci(n)
+    if n is 0 or 1
+        return n
+    
     create array arr of size (n + 1) // list to store Fibonacci numbers from index 0 to n
     set arr[0] to 0 // first Fibonacci number is 0
     set arr[1] to 1 // second Fibonacci number is 1
@@ -64,9 +82,6 @@ function Fibonacci(n)
         set arr[i] = arr[i - 1] + arr[ i - 2] // each number is sum of previous two
     return arr[n] //return nth Fibonacci number
 ```
-
-With the dynamic programming approach, the Big O notation is $O(n)$, representing linear time. This is because each Fibonacci number from $F(2)$ up to $F(n)$ is computed exactly once, using previously stored values to perform constant-time additions at each step. The algorithm begins with the base cases and builds the sequence incrementally, storing each result in a data structure for reuse. For space, it uses $O(n)$, since it maintains an array or list of size $(n+1)$ to hold all computed values from $F(0)$ through $F(n)$. As a result, both time and memory usage grow linearly with the input size. [7]
-
 
 ## Empirical Data & Discussion 
 
