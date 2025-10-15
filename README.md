@@ -37,9 +37,9 @@ To begin my analysis of the three approaches, I first examine their Big O notati
 | Dynamic Programming | $O(n)$ | $O(n)$ |
 
 
-Recursive Approach
+**Recursive Approach**
 
-With the recursive approach, the Big O notation is $O(2^n)$, representing exponential time. This can be expressed with the recurrence relation:
+With the recursive approach, the Big O notation is $O(2^n)$, representing exponential time. We can represent the time complexity as:
 
 $$T(n) = T(n-1) + T(n-2) + O(1)$$
 
@@ -58,9 +58,11 @@ function Fibonacci(n)
 ```
 
 
-Iterative Aprroach
+**Iterative Approach**
 
-With the iterative approach, the Big O notation is $O(n)$, representing linear time. This is because the loop runs once for each value from 2 up to $n$, performing a constant-time operation at each step. The algorithm starts with the base cases and computes each Fibonacci number in sequence, avoiding any redundant calculations. For space, it uses a constant $O(1)$, since it only requires a fixed number of variables to track the current and previous values. As a result, memory usage remains constant regardless of the input size. [6]
+With the iterative approach, the Big O notation is $O(n)$, representing linear time. This is because the loop runs once for each value from 2 up to $n$, performing a constant-time operation at each step. The algorithm starts with the base cases and computes each Fibonacci number in sequence, avoiding any redundant calculations. 
+
+For space, ithe algorithm uses a constant $O(1)$, since it only requires a fixed number of variables to track the current and previous values. As a result, memory usage remains constant regardless of the input size. [6]
 
 Iterative pseudocode:
 ```text
@@ -78,7 +80,14 @@ function Fibonacci(n)
     return curr
 ```
 
-With the dynamic programming approach, the Big O notation is $O(n)$, representing linear time. This is because each Fibonacci number from $F(2)$ up to $F(n)$ is computed exactly once, using previously stored values to perform constant-time additions at each step. The algorithm begins with the base cases and builds the sequence incrementally, storing each result in a data structure for reuse. For space, it uses $O(n)$, since it maintains an array or list of size $(n+1)$ to hold all computed values from $F(0)$ through $F(n)$. As a result, both time and memory usage grow linearly with the input size. [7]
+**Dynamic Programming Approach**
+With the dynamic programming approach, the Big O notation is $O(n)$, representing linear time. This is because each Fibonacci number from $F(2)$ up to $F(n)$ is computed exactly once, using previously stored values to perform constant-time additions at each step. We can represent the time complexity as:
+
+$$T(n) = T(n-1) + O(1)$$
+
+Each iteration from $2$ to $n$ does constant work, so the total work grows linearly with $n$ (O(n)). The algorithm begins with the base cases and builds the sequence incrementally, storing each result in a data structure for reuse. 
+
+For space, the algorithm uses $O(n)$, since it maintains an array or list of size $(n+1)$ to hold all computed values from $F(0)$ through $F(n)$. As a result, both time and memory usage grow linearly with the input size. [7][9]
 
 Dynamic programming pseudocode:
 ```text
@@ -91,7 +100,7 @@ function Fibonacci(n)
     set arr[1] to 1 // second Fibonacci number is 1
 
     for i from 2 to n // loop from index 2 to n
-        set arr[i] = arr[i - 1] + arr[ i - 2] // each number is sum of previous two
+        set arr[i] = arr[i - 1] + arr[i - 2] // sum of previous two numbers
     return arr[n] //return nth Fibonacci number
 ```
 
@@ -133,3 +142,5 @@ https://insteading.com/blog/fibonacci-sequence-in-nature/
 7. GeeksforGeeks. 2025. Dynamic Programming (DP) Introduction. (August 7, 2025). Retrieved October 14, 2025 from https://www.geeksforgeeks.org/dsa/introduction-to-dynamic-programming-data-structures-and-algorithm-tutorials/
 
 8. GeeksforGeeks. 2025. Time complexity of recursive Fibonacci program. (August 27, 2025). Retrieved October 14, 2025 from https://www.geeksforgeeks.org/dsa/time-complexity-recursive-fibonacci-program/?utm_source=chatgpt.com
+
+9. Baeldung. 2024. Computational Complexity of Fibonacci Sequence. (March 18, 2024). Retrieved October 14, 2025 from https://www.baeldung.com/cs/fibonacci-computational-complexity
