@@ -19,7 +19,7 @@ $$F(0) = 0 \quad \text{and} \quad F(1) = 1$$
 
 The sequence progresses as:
 
- $$0,\ 1,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13,\ 21,\ 34,\ 55,\ 89,\ 144,\ 233,\ 377,\ 610,\ 987,\ 1597,\ 2584,\ 4181,\ldots$$
+ $$0,\ 1,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13,\ 21,\ 34,\ 55,\ 89,\ 144,\ 233,\ 377,\ 610,\ 987,\ 1597,\ 2584,\ 4181\ldots$$
 
  
 First introduced to Western mathematics by Leonardo of Pisa (Fibonacci) in his 1202 book Liber Abaci, the sequence was originally used to model rabbit population growth under ideal conditions. [1][2]
@@ -37,6 +37,17 @@ To begin my analysis of the three approaches, I first examine their Big O notati
 | Dynamic Programming | $O(n)$ | $O(n)$ |
 
 With the recursive approach, the Big O notation is $O(2^n)$,  representing exponential time. Each call to $F(n)$, the nth Fibonacci number, generates two additional calls: $F(n-1)$ and $F(n-2)$. This recursive branching continues until the base cases are reached, producing a tree like structure of calls. As a result, the number of operations increases exponentially with $n$, and many values are recomputed multiple times. For space it uses $O(n)$. That’s because each time the function calls itself, it adds a new layer to the call stack. These layers build up until the base case is reached, and the total number of active calls depends on how deep the recursion goes. Since the depth increases with the input size, memory usage grows linearly with $n$. [5]
+
+```text
+
+int Fibonacci(n)
+    if n is 0 or 1
+    return n
+
+    else 
+        return Fibonacci(n-1) + Fibonacci(n-2) 
+
+```
 
 With the iterative approach, the Big O notation is $O(n)$, representing linear time. This is because the loop runs once for each value from 2 up to $n$, performing a constant-time operation at each step. The algorithm starts with the base cases and computes each Fibonacci number in sequence, avoiding any redundant calculations. For space, it uses a constant $O(1)$, since it only requires a fixed number of variables to track the current and previous values. As a result, memory usage remains constant regardless of the input size. [6]
 
