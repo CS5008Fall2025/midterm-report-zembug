@@ -42,7 +42,7 @@ Recursive pseudocode:
 ```text
 function Fibonacci(n)
     if n is 0 or 1
-    return n
+        return n
 
     else 
         return Fibonacci(n-1) + Fibonacci(n-2) 
@@ -53,14 +53,14 @@ With the iterative approach, the Big O notation is $O(n)$, representing linear t
 Iterative pseudocode:
 ```text
 function Fibonacci(n)
-    if n equals 0
-    return 0
+    if n is 0
+        return 0
 
-    create array size (n + 1) // list to store Fibonacci numbers from index 0 to n
+    create array arr of size (n + 1) // list to store Fibonacci numbers from index 0 to n
     set arr[0] to 0 // first Fibonacci number is 0
     set arr[1] to 1 // second Fibonacci number is 1
 
-    for i from 2 to n // loop from index 2 to n to fill in rest of sequence
+    for i from 2 to n // loop from index 2 to n
         set arr[i] = arr[i - 1] + arr[ i - 2] // each number is sum of previous two
     return arr[n] //return nth Fibonacci number
 ```
