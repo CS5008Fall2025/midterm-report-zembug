@@ -50,37 +50,45 @@ For space, the algorithm uses $O(n)$ because each recursive call adds a new laye
 Recursive pseudocode:
 ```text
 function Fibonacci(n)
+    // base cases
     if n is 0 or 1
         return n
 
-    else 
+    else
+        //sum of previous two numbers
         return Fibonacci(n-1) + Fibonacci(n-2) 
 ```
 
 
 **Iterative Approach**
 
-With the iterative approach, the Big O notation is $O(n)$, representing linear time. This is because the loop runs once for each value from 2 up to $n$, performing a constant-time operation at each step. The algorithm starts with the base cases and computes each Fibonacci number in sequence, avoiding any redundant calculations. 
+With the iterative approach, the Big O notation is $O(n)$, representing linear time. We can represent the time complexity as:
 
-For space, ithe algorithm uses a constant $O(1)$, since it only requires a fixed number of variables to track the current and previous values. As a result, memory usage remains constant regardless of the input size. [6]
+$$T(n) = T(n-1) + O(1)$$
+
+This is because the loop runs once for each value from 2 up to $n$, performing a constant-time operation at each step. Expanding the recurrence shows there are $n-1$ constant-time iterations, giving a total $O(n)$ work. The algorithm starts with the base cases and computes each Fibonacci number in sequence, avoiding any redundant calculations. 
+
+For space, the algorithm uses a constant $O(1)$, since it only requires a fixed number of variables to track the current and previous values. As a result, memory usage remains constant regardless of the input size. [6]
 
 Iterative pseudocode:
 ```text
 function Fibonacci(n)
+    // base cases
     if n is 0 or 1
         return n
 
-    set prev = 0
-    set curr = 1
+    set prev = 0 // first Fibonacci number
+    set curr = 1 // second Fibonacci number
 
-    for i from 2 to n
-        set next = prev + curr
-        set prev = curr
-        set curr = next
-    return curr
+    for i from 2 to n // loop from index 2 to n
+        set next = prev + curr // compute next Fibonacci number
+        set prev = curr // update previous number
+        set curr = next // update current number
+    return curr // return nth Fibonacci number
 ```
 
 **Dynamic Programming Approach**
+
 With the dynamic programming approach, the Big O notation is $O(n)$, representing linear time. This is because each Fibonacci number from $F(2)$ up to $F(n)$ is computed exactly once, using previously stored values to perform constant-time additions at each step. We can represent the time complexity as:
 
 $$T(n) = T(n-1) + O(1)$$
@@ -92,6 +100,7 @@ For space, the algorithm uses $O(n)$, since it maintains an array or list of siz
 Dynamic programming pseudocode:
 ```text
 function Fibonacci(n)
+    // base cases
     if n is 0 or 1
         return n
     
