@@ -38,9 +38,9 @@ To begin my analysis of the three approaches, I first examine their Big O notati
 
 With the recursive approach, the Big O notation is $O(2^n)$,  representing exponential time. Each call to $F(n)$, the nth Fibonacci number, generates two additional calls: $F(n-1)$ and $F(n-2)$. This recursive branching continues until the base cases are reached, producing a tree like structure of calls. As a result, the number of operations increases exponentially with $n$, and many values are recomputed multiple times. For space it uses $O(n)$. That’s because each time the function calls itself, it adds a new layer to the call stack. These layers build up until the base case is reached, and the total number of active calls depends on how deep the recursion goes. Since the depth increases with the input size, memory usage grows linearly with $n$. [5]
 
-Recursive psuedocode:
+Recursive pseudocode:
 ```text
-int Fibonacci(n)
+function Fibonacci(n)
     if n is 0 or 1
     return n
 
@@ -49,6 +49,21 @@ int Fibonacci(n)
 ```
 
 With the iterative approach, the Big O notation is $O(n)$, representing linear time. This is because the loop runs once for each value from 2 up to $n$, performing a constant-time operation at each step. The algorithm starts with the base cases and computes each Fibonacci number in sequence, avoiding any redundant calculations. For space, it uses a constant $O(1)$, since it only requires a fixed number of variables to track the current and previous values. As a result, memory usage remains constant regardless of the input size. [6]
+
+Iterative pseudocode:
+```text
+function Fibonacci(n)
+    if n equals 0
+    return 0
+
+    create array size (n + 1) // list to store Fibonacci numbers from index 0 to n
+    set arr[0] to 0 // first Fibonacci number is 0
+    set arr[1] to 1 // second Fibonacci number is 1
+
+    for i from 2 to n // loop from index 2 to n to fill in rest of sequence
+        set arr[i] = arr[i - 1] + arr[ i - 2] // each number is sum of previous two
+    return arr[n] //return nth Fibonacci number
+```
 
 With the dynamic programming approach, the Big O notation is $O(n)$, representing linear time. This is because each Fibonacci number from $F(2)$ up to $F(n)$ is computed exactly once, using previously stored values to perform constant-time additions at each step. The algorithm begins with the base cases and builds the sequence incrementally, storing each result in a data structure for reuse. For space, it uses $O(n)$, since it maintains an array or list of size $(n+1)$ to hold all computed values from $F(0)$ through $F(n)$. As a result, both time and memory usage grow linearly with the input size. [7]
 
