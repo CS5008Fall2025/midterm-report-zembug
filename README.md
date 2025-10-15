@@ -49,6 +49,7 @@ For space, the algorithm uses $O(n)$ because each recursive call adds a new laye
 
 ```text
 // Recursive pseudocode
+
 function Fibonacci(n)
     // base cases
     if n is 0 or 1
@@ -72,6 +73,7 @@ For space, the algorithm uses a constant $O(1)$, since it only requires a fixed 
 
 ```text
 // Iterative pseudocode
+
 function Fibonacci(n)
     // base cases
     if n is 0 or 1
@@ -99,6 +101,7 @@ For space, the algorithm uses $O(n)$, since it maintains an array or list of siz
 
 ```text
 // Dynamic programming pseudocode
+
 function Fibonacci(n)
     // base cases
     if n is 0 or 1
