@@ -47,8 +47,8 @@ Each call to $F(n)$, the nth Fibonacci number, generates two additional calls: $
 
 For space, the algorithm uses $O(n)$ because each recursive call adds a new layer to the call stack. The maximum depth of recursion equals $n$, so memory usage grows linearly with the input size. [5]
 
-Recursive pseudocode:
 ```text
+// Recursive pseudocode
 function Fibonacci(n)
     // base cases
     if n is 0 or 1
@@ -70,8 +70,8 @@ This is because the loop runs once for each value from 2 up to $n$, performing a
 
 For space, the algorithm uses a constant $O(1)$, since it only requires a fixed number of variables to track the current and previous values. As a result, memory usage remains constant regardless of the input size. [6]
 
-Iterative pseudocode:
 ```text
+// Iterative pseudocode
 function Fibonacci(n)
     // base cases
     if n is 0 or 1
@@ -97,8 +97,8 @@ Each iteration from $2$ to $n$ does constant work, so the total work grows linea
 
 For space, the algorithm uses $O(n)$, since it maintains an array or list of size $(n+1)$ to hold all computed values from $F(0)$ through $F(n)$. As a result, both time and memory usage grow linearly with the input size. [7][9]
 
-Dynamic programming pseudocode:
 ```text
+// Dynamic programming pseudocode
 function Fibonacci(n)
     // base cases
     if n is 0 or 1
