@@ -1,7 +1,7 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/kdfTwECC)
 # Midterm p1: Report on Analysis of Fibonacci  Series
 * **Author**: Emily Despres
-* **GitHub Repo**: (https://github.com/CS5008Fall2025/midterm-report-zembug/blob/main/README.md)
+* **GitHub Repo**: [ttps://github.com/CS5008Fall2025/midterm-report-zembug/blob/main/README.md](https://github.com/CS5008Fall2025/midterm-report-zembug/blob/main/README.md)
 * **Semester**: Fall 2025
 * **Languages Used**: c, python
 
@@ -118,6 +118,11 @@ function Fibonacci(n)
 
 ## Empirical Data & Discussion 
 
+The number of operations for each Fibonacci algorithm was measured by incrementing a counter at the recursive or loop entry point. This ensured consistency across both C and Python implementations, allowing for meaningful comparisons between iterative, dynamic programming, and naive recursive approaches.
+
+In the Python dynamic programming version, memoization preserved the recursive structure while eliminating redundant calls. This produced identical operation counts to the C implementation, confirming that the counter was placed correctly and measured the intended behavior.
+
+The chart below shows the first 30 Fibonacci indices for Python and the first 40 for C. Beyond index 30, the recursive version in Python began to time out due to exponential call growth. In C, the recursive version was able to reach index 40, but performance constraints made it impractical to continue further. For full operation counts, see [ops_c_run.csv](ops_c_run.csv) and [ops_python_run.csv](ops_python_run.csv).
 
 #### C Operations Count
 | **N** | **Iterative** | **Dynamic Programming** | **Recursive** |
