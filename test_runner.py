@@ -59,7 +59,11 @@ def save_to_csv(values: list, out_file: str, step: int):
         writer.writerow(CSV_HEADER.split(","))
         for i, row in enumerate(values):
             row = [i * step + 1] + row
+            # Pad row to ensure 4 columns
+            while len(row) < 4:
+                row.append("-")
             writer.writerow(row)
+
 
 def main(n, step=1, out_file=OUT_DEFAULT):
     run_type = 4  # type 4 = run all methods
