@@ -233,8 +233,15 @@ Meanwhile, both C versions, iterative and dynamic programming, stay very close t
 
 Both the iterative and dynamic programming approaches run in $O(n)$ so the runtime grows in proportion to the input size. This matches what we see in the chart. A steady, predictable increase without sudden jumps. The loop in each version runs once per Fibonacci number, and there are no nested calls or repeated calculations, just one addition per step. This makes them ideal for computing large values of $N$ efficiently.
 
+
 ## Language Analysis
 
+The code writing can be found in the following files:
+* [fibonacci.c]  -- implementation of functions in c
+* [fibonacci.py] -- implementation of function in python
+* [test_runner.py] -- run script to help with tests and keep timings
+
+I began developing the code in C, using class examples as a foundation. Specifically, I drew from the dynamic programming lab and the sample midterm to help structure the test runner file and validate outputs. Once the core implementations were working in C, I mirrored the logic in Python to maintain consistency across versions.
 
 ### Language 1: C
 

@@ -109,9 +109,6 @@ int main(int argc, char* argv[]) {
             printf("Time: %.6f, Ops: %" PRIu64 "\n", runtime, ops);
             break;
 
-        #include <inttypes.h>  // Make sure this is at the top of your file
-
-
         case 4: {
             uint64_t ops_iter = 0, ops_dp = 0, ops_rec = 0;
             double runtime_iter, runtime_dp, runtime_rec;
