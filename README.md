@@ -243,6 +243,8 @@ The code writing can be found in the following files:
 
 I began developing the code in C, using class examples as a foundation. Specifically, I drew from the dynamic programming lab and the sample midterm to help structure the test runner file and validate outputs. Once the core implementations were working in C, I mirrored the logic in Python to maintain consistency across versions.
 
+I chose Python as the second language because it was the first one I learned and I’ve always found it easy to read and enjoyable to use. Working with it again gave me a chance to better understand how recursion works and how to keep track of values during function calls. Python’s simple syntax and built-in tools made it easier to write clean code and avoid common mistakes, especially when comparing different ways to solve the same problem.
+
 ### Language 1: C
 
 Initially, I used int for return types and loop counters, but this quickly became problematic for larger values of $N$. The Fibonacci sequence grows rapidly, and I started seeing incorrect results and even negative operation counts due to integer overflow. To fix this, I switched to `unsigned long long (ull)` for all return types and accumulators, which allowed the program to handle much larger values safely.
@@ -316,11 +318,22 @@ Finally, I made sure all three functions followed the same pattern: they take $n
 
 ### Comparison and Discussion Between Experiences
 
+Working with both C and Python helped me see how different languages affect the way you write and test code. Even though the logic behind each Fibonacci function was the same, the process of getting everything to work—and making sure the results were accurate—felt very different.
+
+In C, I started by using `int` for return values and counters, but that quickly caused problems. The Fibonacci numbers grow fast, and once they got too big, the values started wrapping around and turning negative. This was especially bad for the operation counter in the recursive version. To fix it, I switched to `unsigned long long`, which can hold much larger numbers. I also added a typedef at the top of the file to make the code cleaner. Python didn’t have this issue, its integers can grow as big as needed, so I didn’t have to worry about overflow there.
+
+The recursive version was easy to write in both languages, but it became very slow for large inputs. In C, the operation count got so high it started overflowing, and the function took too long to finish. I limited it to 
+$𝑁≤40$ to avoid crashes and bad data. In Python, I ran into a different issue: I couldn’t just pass an integer to track operations, because it would reset every time the function was called. Instead, I used a list like `ops = [0]`, which let me update the counter inside each call. This worked well and gave me accurate counts.
+
+One interesting thing I noticed was that the number of operations in the recursive version was often much higher than the Fibonacci number itself. That helped show how inefficient plain recursion can be.
+
+Getting all three results (recursive, iterative, dynamic) to print correctly to a CSV file was tricky in C. At first, only the iterative column showed up. I found that the recursive version was either timing out or giving bad results for large $N$, which messed up the formatting. In Python, I had a GitHub rendering issue where the CSV didn’t show anything for recursive timeouts, making the table look incomplete. I fixed this by adding a placeholder value when the recursive result wasn’t available.
+
+After finishing the main versions, I thought about adding memoization to the recursive function to make it faster. In Python, this would have been easy with a dictionary or a decorator. But I decided not to include memoization because it would blur the line between recursion and dynamic programming. My goal was to compare three distinct strategies: plain recursion, iteration, and bottom-up dynamic programming, to show how each one behaves on its own. Memoization is a way of speeding up recursion by storing results, which makes it act more like dynamic programming. If I had added it, the recursive version wouldn’t be truly recursive anymore, and the performance differences between the methods would be harder to see. I wanted to keep the comparison clean and highlight how much more efficient the iterative and dynamic versions are without any extra help.
 
 ## Conclusions / Reflection
 
 ## References
-
 
 1. GeekforGeeks. 2025. Real Life Applications of Fibonacci Sequence. (July 23, 2025). Retrieved October 12, 2025 from   https://www.geeksforgeeks.org/maths/real-life-applications-of-fibonacci-sequence/
 
