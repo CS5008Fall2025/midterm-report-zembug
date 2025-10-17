@@ -223,13 +223,9 @@ This disparity reflects the overhead of Python’s interpreted execution and fun
 
 The chart visualizes this divergence, with Python’s curve rising sharply after $N=20$, while C’s curve remains relatively flat until the final few indices. Beyond $N=30$, Python was skipped due to performance constraints, while C continued up to $N=40$ in separate trials.
 
-### Iterative Versions
+### Iterative and Dynamic Programming Versions
 
-The iterative Fibonacci implementation in both C and Python produced identical operation counts across all tested indices. Each version incremented the counter once per addition, starting from index 2, resulting in a linear growth pattern where the number of operations equals $n-1$. This consistency confirms that the loop structure and counter placement were functionally equivalent in both languages. The simplicity and predictability of the iterative method made it a reliable baseline for comparison.
-
-### Dynamic Programming Versions
-
-Both C and Python used a bottom-up tabulation strategy for dynamic programming, storing intermediate results in an array or list. The operation counts matched exactly at every index, with one addition per step from index 2 onward. This alignment demonstrates that the dynamic programming logic was implemented equivalently in both languages, and that the counter accurately reflected the number of computed steps. The tabulated approach avoided redundant computation and scaled efficiently, maintaining linear growth in operations.
+![Iterative and Dynamic Programming Runtime](I_DP_runtimes.png) 
 
 ## Language Analysis
 
