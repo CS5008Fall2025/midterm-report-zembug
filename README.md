@@ -213,7 +213,7 @@ The chart below shows the first 30 Fibonacci indices for Python and the first 40
 
 ### Recursive Versions
 
-![Recursive Runtime](midterm-report-zembug/recursive_runtime.png) 
+![Recursive Runtime](recursive_runtime.png) 
 
 The runtime growth of the recursive Fibonacci implementation is clearly exponential in both C and Python. While both versions begin with negligible runtimes for small inputs, the difference in scalability becomes increasingly apparent as $N$ increases.
 
