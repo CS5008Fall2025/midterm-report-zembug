@@ -227,6 +227,12 @@ The chart visualizes this divergence, with Python’s curve rising sharply after
 
 ![Iterative and Dynamic Programming Runtime](I_DP_runtimes.png) 
 
+Thanks to the high speed of both the iterative and dynamic programming versions, we were able to test much larger values of $N$, which revealed more gradual and readable runtime curves. In the chart, Python’s dynamic programming version shows the steepest curve, rising more noticeably as $N$ increases. Python’s iterative version also curves upward, but not as sharply. It follows a similar shape with slightly better performance.
+
+Meanwhile, both C versions, iterative and dynamic programming, stay very close to the bottom of the chart. Their runtimes increase only slightly, forming a gentle incline that’s almost flat compared to Python. This shows how efficient C is for these types of algorithms, especially when compared to Python’s interpreted execution. The overall shapes of the curves are similar across all four methods, but the height and steepness vary due to language differences and minor overheads.
+
+Both the iterative and dynamic programming approaches run in $O(n)$ so the runtime grows in proportion to the input size. This matches what we see in the chart. A steady, predictable increase without sudden jumps. The loop in each version runs once per Fibonacci number, and there are no nested calls or repeated calculations, just one addition per step. This makes them ideal for computing large values of $N$ efficiently.
+
 ## Language Analysis
 
 
