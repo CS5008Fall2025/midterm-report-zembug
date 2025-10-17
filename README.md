@@ -245,6 +245,53 @@ I began developing the code in C, using class examples as a foundation. Specific
 
 ### Language 1: C
 
+Initially, I used int for return types and loop counters, but this quickly became problematic for larger values of $N$. The Fibonacci sequence grows rapidly, and I started seeing incorrect results and even negative operation counts due to integer overflow. To fix this, I switched to `unsigned long long (ull)` for all return types and accumulators, which allowed the program to handle much larger values safely.
+
+The recursive version was the most straightforward to implement and closely followed the mathematical definition. I added an operation counter to track the number of function calls, which helped quantify how quickly the workload increased. For large $N$, the recursive version became impractical due to exponential growth in calls and stack depth, so I limited its use to $N≤40$.
+
+The iterative version was the most efficient and easiest to control. It used constant space and a simple loop to build up the Fibonacci sequence, with each addition counted as a single operation:
+
+```
+ull fib_iterative(int n, ull* ops) {
+    *ops = 0;
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+
+    ull prev = 0, curr = 1, next;
+    for (int i = 2; i <= n; i++) {
+        next = prev + curr;
+        prev = curr;
+        curr = next;
+        (*ops)++;
+    }
+    return curr;
+}
+```
+
+For dynamic programming, I implemented a bottom-up approach using a heap-allocated array. This avoided stack overflow and allowed intermediate results to be stored iteratively. Each addition was counted as an operation, and the array was freed after use to prevent memory leaks:
+
+```
+ull fib_dynamic(int n, ull* ops) {
+    *ops = 0;
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+
+    ull* arr = (ull*)malloc((n + 1) * sizeof(ull));
+    arr[0] = 0;
+    arr[1] = 1;
+
+    for (int i = 2; i <= n; i++) {
+        arr[i] = arr[i - 1] + arr[i - 2];
+        (*ops)++;
+    }
+
+    ull result = arr[n];
+    free(arr);
+    return result;
+}
+```
+
+I also wrote custom timing and output functions using clock() and PRIu64 formatting to measure runtime and display results. These utilities were essential for comparing how each version performed across different values of $N$. Overall, the C implementations required more manual setup and debugging, but they offered precise control over memory, execution flow, and performance tracking.
 
 
 ### Language 2: Python
