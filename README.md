@@ -237,9 +237,9 @@ Both the iterative and dynamic programming approaches run in $O(n)$ so the runti
 ## Language Analysis
 
 The code writing can be found in the following files:
-* [fibonacci.c]  -- implementation of functions in c
-* [fibonacci.py] -- implementation of function in python
-* [test_runner.py] -- run script to help with tests and keep timings
+* [fibonacci.c](fibonacci.c)  -- implementation of functions in c
+* [fibonacci.py](fibonacci.py) -- implementation of function in python
+* [test_runner.py](test_runner.py) -- run script to help with tests and keep timings
 
 I began developing the code in C, using class examples as a foundation. Specifically, I drew from the dynamic programming lab and the sample midterm to help structure the test runner file and validate outputs. Once the core implementations were working in C, I mirrored the logic in Python to maintain consistency across versions.
 
