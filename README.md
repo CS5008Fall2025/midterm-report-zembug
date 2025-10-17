@@ -296,6 +296,22 @@ I also wrote custom timing and output functions using clock() and PRIu64 formatt
 
 ### Language 2: Python
 
+While writing the Python versions of the Fibonacci functions, I made several choices to keep the code safe, consistent, and easy to understand. First, I added operation counters to all three methods so I could see how many steps each one takes. This helped me compare how efficient each version was. Not just by how fast they ran, but by how much work they actually did.
+
+For the iterative and dynamic programming versions, I had each function return two things: the final Fibonacci number and the number of operations. I did this using a tuple like return `curr`, `ops`, which keeps everything self-contained and avoids using global variables. If I had only returned the result, I wouldn’t be able to track how many steps were performed.
+
+```
+return curr, ops
+```
+
+The recursive version needed a different approach. Since Python doesn’t let you change numbers directly inside recursive calls, I used a list like `ops_counter = [0]` to keep track of operations. Lists are mutable, so I could update the counter inside each call. If I had used a regular integer like `ops = 0`, it would reset every time and give the wrong count.
+
+```
+def fib_recursive(n, ops_counter):
+    ops_counter[0] += 1
+```
+
+Finally, I made sure all three functions followed the same pattern: they take $n$ as input, return both the result and the operation count, and work smoothly with my `run_and_time() function`. This consistency made it easier to test and compare them. If one function had a different setup, it would have caused problems in the runner and made the results harder to manage.
 
 
 ### Comparison and Discussion Between Experiences
