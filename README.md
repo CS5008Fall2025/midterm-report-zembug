@@ -116,13 +116,20 @@ function Fibonacci(n)
     return arr[n] //return nth Fibonacci number
 ```
 
-## Empirical Data & Discussion 
+## Empirical Data & Discussion
 
-The number of operations for each Fibonacci algorithm was measured by incrementing a counter at the recursive or loop entry point. This ensured consistency across both C and Python implementations, allowing for meaningful comparisons between iterative, dynamic programming, and naive recursive approaches.
+For all empirical results, each run was limited to a maximum of 60 seconds. This threshold ensured that the data collection process remained responsive and could evaluate a wide range of input sizes without excessive delays.
 
-In the Python dynamic programming version, memoization preserved the recursive structure while eliminating redundant calls. This produced identical operation counts to the C implementation, confirming that the counter was placed correctly and measured the intended behavior.
+The follwing is a summary of how each Fibonacci implementation performed. In terms of runtime and the number of operations executed.
 
-The chart below shows the first 30 Fibonacci indices for Python and the first 40 for C. Beyond index 30, the recursive version in Python began to time out due to exponential call growth. In C, the recursive version was able to reach index 40, but performance constraints made it impractical to continue further. For full operation counts, see [ops_c_run.csv](ops_c_run.csv) and [ops_python_run.csv](ops_python_run.csv).
+
+### Operations Comparison
+
+The number of operations for each Fibonacci algorithm was measured by incrementing a counter at the recursive or loop entry point. This ensured consistency across both C and Python implementations, allowing for meaningful comparisons between iterative, dynamic programming, and naive recursive approaches. 
+
+In both C and Python, the dynamic programming version used a bottom-up tabulation strategy, storing intermediate results in an array. This approach avoids redundant computation and produced identical operation counts across languages, confirming that the counter was placed correctly and measured the intended behavior. 
+
+The chart below shows the first 30 Fibonacci indices for Python and the first 40 for C. Beyond index 30, the recursive version in Python began to exceed the time limit. In C, the recursive version was able to reach index 40, though further inputs became impractical within the 60-second constraint. For full operation counts. For full operation counts, see [ops_c_run.csv](ops_c_run.csv) and [ops_python_run.csv](ops_python_run.csv).
 
 #### C Operations Count
 | **N** | **Iterative** | **Dynamic Programming** | **Recursive** |
@@ -203,6 +210,26 @@ The chart below shows the first 30 Fibonacci indices for Python and the first 40
 | 29    | 28            | 28                      | 1,664,079     |
 | 30    | 29            | 29                      | 2,692,537     |
 
+
+### Recursive Versions
+
+![recursive_runtime]  
+
+The runtime growth of the recursive Fibonacci implementation is clearly exponential in both C and Python. While both versions begin with negligible runtimes for small inputs, the difference in scalability becomes increasingly apparent as $N$ increases.
+
+Python’s recursive version begins to diverge significantly around $N=14$, crossing 0.1 seconds by $N=20$ and reaching over 0.16 seconds by $N=30$. In contrast, the C version remains under 0.01 seconds until roughly $N=20$, and only begins to show noticeable growth beyond that point. By $N=30$, the C version reaches approximately 0.005 seconds. Still far below Python’s runtime for the same input.
+
+This disparity reflects the overhead of Python’s interpreted execution and function call stack management, compared to C’s compiled efficiency. Although both implementations are structurally identical and lack memoization, C’s lower-level execution allows it to handle deeper recursion more gracefully.
+
+The chart visualizes this divergence, with Python’s curve rising sharply after $N=20$, while C’s curve remains relatively flat until the final few indices. Beyond $N=30$, Python was skipped due to performance constraints, while C continued up to $N=40$ in separate trials.
+
+### Iterative Versions
+
+The iterative Fibonacci implementation in both C and Python produced identical operation counts across all tested indices. Each version incremented the counter once per addition, starting from index 2, resulting in a linear growth pattern where the number of operations equals $n-1$. This consistency confirms that the loop structure and counter placement were functionally equivalent in both languages. The simplicity and predictability of the iterative method made it a reliable baseline for comparison.
+
+### Dynamic Programming Versions
+
+Both C and Python used a bottom-up tabulation strategy for dynamic programming, storing intermediate results in an array or list. The operation counts matched exactly at every index, with one addition per step from index 2 onward. This alignment demonstrates that the dynamic programming logic was implemented equivalently in both languages, and that the counter accurately reflected the number of computed steps. The tabulated approach avoided redundant computation and scaled efficiently, maintaining linear growth in operations.
 
 ## Language Analysis
 
