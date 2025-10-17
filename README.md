@@ -5,7 +5,7 @@
 * **Semester**: Fall 2025
 * **Languages Used**: c, python
 
-> You are free to rename/ modify these sections as you need (and don't forget to remove this line..)
+
 
 ## Overview
 
@@ -21,7 +21,6 @@ The sequence progresses as:
 
  $$0,\ 1,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13,\ 21,\ 34,\ 55,\ 89,\ 144,\ 233,\ 377,\ 610,\ 987,\ 1597,\ 2584,\ 4181\ldots$$
 
- 
 First introduced to Western mathematics by Leonardo of Pisa (Fibonacci) in his 1202 book Liber Abaci, the sequence was originally used to model rabbit population growth under ideal conditions. [1][2]
 
 Many patterns in nature reflect the Fibonacci sequence not just in appearance, but in function. For example, the number of petals on certain flowers often corresponds to Fibonacci numbers. Lilies typically have 3 petals, buttercups have 5, and some varieties of daisies can have 34. [1] These numbers are not arbitrary. They result from a process called phyllotaxis, which governs how plants grow and arrange their leaves, petals, or seeds. Fibonacci based arrangements ensure that each leaf or petal receives maximum sunlight and minimizes overlap with others. [3] Similarly, the spiral patterns found in sunflowers, pinecones, and pineapples often match consecutive Fibonacci numbers, helping distribute seeds evenly and efficiently [4].
@@ -332,6 +331,12 @@ Getting all three results (recursive, iterative, dynamic) to print correctly to 
 After finishing the main versions, I thought about adding memoization to the recursive function to make it faster. In Python, this would have been easy with a dictionary or a decorator. But I decided not to include memoization because it would blur the line between recursion and dynamic programming. My goal was to compare three distinct strategies: plain recursion, iteration, and bottom-up dynamic programming, to show how each one behaves on its own. Memoization is a way of speeding up recursion by storing results, which makes it act more like dynamic programming. If I had added it, the recursive version wouldn’t be truly recursive anymore, and the performance differences between the methods would be harder to see. I wanted to keep the comparison clean and highlight how much more efficient the iterative and dynamic versions are without any extra help.
 
 ## Conclusions / Reflection
+
+Working on this midterm report helped me understand how different algorithm designs and programming languages affect performance and efficiency. Comparing recursion, iteration, and dynamic programming gave me a much clearer picture of how the same problem can be solved in multiple ways, each with its own tradeoffs. I learned that while recursion is simple, it quickly becomes inefficient for larger inputs because of repeated function calls. Iterative and dynamic programming methods, on the other hand, run much faster and handle large values of $N$ easily because they reuse or build results step by step.
+
+Writing the programs in both C and Python showed me how language choice impacts runtime. Even though the logic was the same, C performed much faster due to its compiled nature, while Python was easier to write and understand but slower for large computations. I also learned the importance of details like data types and memory management in C, since mistakes like using int instead of unsigned long long caused overflows and incorrect results. Python made things simpler, but it still required creative solutions like using lists to track recursive operations. Showing that even high-level languages have their own challenges.
+
+Overall, this midterm report strengthened my understanding of algorithm efficiency, time complexity, and how to measure performance properly. The main takeaway for me is that understanding the underlying logic of an algorithm is just as important as knowing how to code it, and that small design choices, like using a loop instead of recursion, can make a huge difference in how programs scale.
 
 ## References
 
